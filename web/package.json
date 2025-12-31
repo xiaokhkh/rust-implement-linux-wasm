@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "packageManager": "pnpm@9.12.0",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:wasm && vite build",
+    "build": "pnpm run build:wasm && vite build",
     "build:wasm": "wasm-pack build ../crates/host-wasm --target web --out-dir src/wasm"
   },
   "devDependencies": {

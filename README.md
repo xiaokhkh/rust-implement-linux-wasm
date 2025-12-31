@@ -8,28 +8,28 @@ Prerequisites:
 - Rust stable (`rustup`)
 - `wasm32-unknown-unknown` target: `rustup target add wasm32-unknown-unknown`
 - `wasm-pack`: `cargo install wasm-pack`
-- Node.js 18+ with npm
+- Node.js 18+ with pnpm
 
 Run the web app:
 
 ```bash
 cd web
-npm install
-npm run dev
+pnpm i
+pnpm dev
 ```
 
 Build the web app (includes wasm build):
 
 ```bash
 cd web
-npm run build
+pnpm run build
 ```
 
 Build wasm only:
 
 ```bash
 cd web
-npm run build:wasm
+pnpm run build:wasm
 ```
 
 Rust workspace checks:
