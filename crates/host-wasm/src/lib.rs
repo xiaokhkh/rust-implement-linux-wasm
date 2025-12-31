@@ -21,3 +21,10 @@ pub fn boot() {
     let mut host = WasmHost;
     kernel::kmain(&mut host);
 }
+
+/// Forward a single line of input to the kernel.
+#[wasm_bindgen]
+pub fn handle_input(line: &str) {
+    let mut host = WasmHost;
+    kernel::handle_input(&mut host, line);
+}
