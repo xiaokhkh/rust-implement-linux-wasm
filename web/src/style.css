@@ -1,0 +1,65 @@
+:root {
+  color-scheme: light;
+  --page-bg: #f3efe6;
+  --page-accent: #dbe8e0;
+  --terminal-bg: #0b1a18;
+  --terminal-border: #1f3a34;
+  --terminal-text: #d7f6e4;
+  --terminal-glow: rgba(90, 210, 160, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, var(--page-accent), var(--page-bg));
+  color: #0f1f1b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", "JetBrains Mono", "Fira Code", "SFMono-Regular",
+    Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+#app {
+  width: min(960px, 92vw);
+}
+
+.terminal {
+  background: linear-gradient(180deg, rgba(20, 46, 40, 0.9), var(--terminal-bg));
+  border: 1px solid var(--terminal-border);
+  border-radius: 16px;
+  padding: 24px;
+  max-height: 70vh;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(8, 18, 16, 0.35), 0 0 0 1px rgba(45, 90, 80, 0.25),
+    0 0 24px var(--terminal-glow);
+}
+
+.terminal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px
+  );
+  background-size: 100% 4px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.terminal-output {
+  margin: 0;
+  color: var(--terminal-text);
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  position: relative;
+  z-index: 1;
+}

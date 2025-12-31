@@ -1,0 +1,13 @@
+[package]
+name = "host-wasm"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "src/lib.rs"
+
+[dependencies]
+abi = { path = "../abi" }
+kernel = { path = "../kernel" }
+wasm-bindgen = "0.2"
