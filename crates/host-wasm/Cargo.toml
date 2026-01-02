@@ -11,3 +11,6 @@ path = "src/lib.rs"
 abi = { path = "../abi" }
 kernel = { path = "../kernel" }
 wasm-bindgen = "0.2"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
