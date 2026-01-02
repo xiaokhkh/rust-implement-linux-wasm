@@ -69,17 +69,15 @@ impl<'h, H: HostAbi> Kernel<'h, H> {
             return errno::EINVAL;
         }
 
-        let bytes = match self.user_read(buf_ptr, len) {
-            Some(bytes) => bytes,
+        let text = match self.user_read(buf_ptr, len) {
+            Some(bytes) => match std::str::from_utf8(bytes) {
+                Ok(text) => text.to_owned(),
+                Err(_) => return errno::EINVAL,
+            },
             None => return errno::EINVAL,
         };
 
-        let text = match std::str::from_utf8(bytes) {
-            Ok(text) => text,
-            Err(_) => return errno::EINVAL,
-        };
-
-        self.host.console_write(text);
+        self.host.console_write(&text);
         match isize::try_from(len) {
             Ok(count) => count,
             Err(_) => errno::EINVAL,
