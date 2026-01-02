@@ -11,3 +11,5 @@ pub trait HostAbi {
 
 /// Signature for the kernel entry point expected by hosts.
 pub type KMainFn<H> = fn(&mut H);
+
+pub mod syscall;

@@ -3,5 +3,6 @@ members = [
   "crates/abi",
   "crates/kernel",
   "crates/host-wasm",
+  "crates/userland",
 ]
 resolver = "2"
